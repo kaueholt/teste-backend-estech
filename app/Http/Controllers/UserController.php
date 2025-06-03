@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Services\UserService;
-use App\Http\Requests\DestroyUserRequest;
-use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\{DestroyUserRequest,IndexUserRequest,StoreUserRequest,UpdateUserRequest};
 use Illuminate\Http\JsonResponse;
 
 class UserController extends Controller
@@ -18,10 +16,10 @@ class UserController extends Controller
         $this->userService = $userService;
     }
 
-    public function index(): JsonResponse
+    public function index(IndexUserRequest $request): JsonResponse
     {
         $users = $this->userService->getUsers(
-            request()->all(),
+            $request->validated(),
             request('sort_by', 'id'),
             request('sort_direction', 'asc')
         );

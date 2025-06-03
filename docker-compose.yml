@@ -8,19 +8,25 @@ services:
       args:
         - user=${HOST_USER:-laravel}
         - uid=${HOST_UID:-1000}
-    command: sh -c "php artisan serve --host=0.0.0.0 --port=8000"
+    container_name: laravel_app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./docker/supervisor/conf.d:/etc/supervisor/conf.d
     ports:
       - "8000:8000"
-    volumes:
-      - .:/var/www
-    environment:
-      - WWWUSER=${HOST_UID}
     networks:
       - laravel-network
     depends_on:
       - db
       - redis
-
+    command: ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+    environment:
+      - SUPERVISOR_PIDFILE=/var/www/storage/logs/supervisord.pid
+      - HOST_UID=${HOST_UID}
+      - HOST_USER=${HOST_USER}
+  
   db:
     image: mysql:8.0
     container_name: laravel_db
@@ -61,19 +67,7 @@ services:
       - redis_data:/data
     networks:
       - laravel-network
-  worker:
-    build:
-      context: .
-      target: base
-    command: bash -c "while [ ! -f /var/www/bootstrap/cache/services.php ]; do sleep 2; done && php artisan queue:work --tries=3 --timeout=30"
-    volumes:
-      - .:/var/www
-    depends_on:
-      - app
-      - redis
-    environment:
-      - REDIS_HOST=redis
-      
+
 volumes:
   dbdata:
     driver: local

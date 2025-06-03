@@ -12,6 +12,9 @@ class UserJobOfferApplication extends Model
 
     protected $table = 'user_job_offer_applications';
 
+    protected $primaryKey = ['user_id', 'job_offer_id'];
+    public $incrementing = false;
+
     protected $fillable = [
         'user_id',
         'job_offer_id',

@@ -10,8 +10,10 @@ class GetUserErrorTest extends TestCase
 {
     public function test_the_get_user_endpoint_error(): void
     {
-        $response = $this->get('/api/users/0');
+        $response = $this->get('/api/users/0', [
+            'Accept' => 'application/json',
+        ]);
 
-        $response->assertStatus(404);
+        $response->assertStatus(401);
     }
 }

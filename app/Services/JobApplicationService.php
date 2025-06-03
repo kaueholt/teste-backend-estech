@@ -20,8 +20,8 @@ class JobApplicationService
             $query->where('job_offer_id', $filters['job_offer_id']);
         }
 
-        $query->orderBy($sortBy, $sortDirection);
-
+        $query->orderBy($sortBy, $sortDirection)->with(['user', 'jobOffer']);
+        
         return $query->paginate(20);
     }
 
@@ -38,12 +38,8 @@ class JobApplicationService
 
     public function deleteApplication(User $user, JobOffer $jobOffer): void
     {
-        DB::table('user_job_offer_applications')
-            ->where('user_id', $user->id)
+        UserJobOfferApplication::where('user_id', $user->id)
             ->where('job_offer_id', $jobOffer->id)
-            ->update([
-                'deleted_at' => now(),
-                'updated_at' => now()
-            ]);
+            ->delete();
     }
 }

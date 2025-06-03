@@ -40,6 +40,6 @@ class ImportTemperatureCSV extends Command
         ProcessTemperatureData::dispatch($storedPath);
         $this->info($storedPath);
 
-        $this->info('Importação iniciada. Verifique os logs para progresso.');
+        $this->info(now() . ' Importação iniciada. Verifique os logs para progresso.');
     }
 }

@@ -35,9 +35,10 @@ class ProcessTemperatureData implements ShouldQueue
             Log::debug('Cabeçalho do CSV: ', $header);
 
             $lineCount = 0;
+            TemperatureData::truncate();
+            
             while (($line = fgetcsv($file)) !== false) {
                 $lineCount++;
-                Log::debug("Linha {$lineCount}: ", $line);
 
                 TemperatureData::create([
                     'recorded_at' => $line[0],
@@ -45,16 +46,14 @@ class ProcessTemperatureData implements ShouldQueue
                 ]);
             }
 
-            Log::info("Job concluído com sucesso. {$lineCount} registros processados.");
+            Log::info(now() . " Job concluído com sucesso. {$lineCount} registros processados.");
         } catch (\Exception $e) {
-            Log::error("Falha no job: " . $e->getMessage());
-            Log::error("Stack trace: " . $e->getTraceAsString());
+            Log::error(now() . " Falha no job: " . $e->getMessage());
             throw $e;
         } finally {
             if (isset($file) && is_resource($file)) {
                 fclose($file);
             }
-            Storage::delete($this->filePath);
         }
     }
 }

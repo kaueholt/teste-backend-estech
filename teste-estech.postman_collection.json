@@ -81,12 +81,23 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "POST",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"kaue@teste.com\",\r\n    \"password\": \"kauekaue\"\r\n}",
+							"raw": "{\r\n    \"email\": \"kaue2@teste.com\",\r\n    \"password\": \"kauekaue\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -125,21 +136,32 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2|5Sw3xaa3RJDJDYtSROYqhlUCCoRJ8m3FbruNz46va951a59d",
+									"value": "189|VHGDFTfh9YhNgj6XNsMQJzTrYrgcpC9L3mFsJEZHb040ca2f",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8000/api/users?page=3",
+							"raw": "http://localhost:8000/api/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -152,7 +174,8 @@
 							"query": [
 								{
 									"key": "page",
-									"value": "3"
+									"value": "1",
+									"disabled": true
 								}
 							]
 						},
@@ -176,11 +199,28 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8000/api/users/1",
+							"raw": "http://localhost:8000/api/users/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -189,7 +229,7 @@
 							"path": [
 								"api",
 								"users",
-								"1"
+								"5"
 							]
 						},
 						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -212,9 +252,20 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:8000/api/users/53/applications",
 							"protocol": "http",
@@ -250,9 +301,30 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "191|E3c6Qy5HGEtIyBmc1a3Lis1LUfRUKdEDRtS6hYYmf21fa46e",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n\t\"name\": \"Orlando Ferreira\"\n}",
@@ -263,7 +335,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/users/1",
+							"raw": "http://localhost:8000/api/users/5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -272,7 +344,7 @@
 							"path": [
 								"api",
 								"users",
-								"1"
+								"5"
 							]
 						},
 						"description": "This is a PUT request and it is used to overwrite an existing piece of data. For instance, after you create an entity with a POST request, you may want to modify that later. You can do that using a PUT request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code."
@@ -296,9 +368,20 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\"user_ids\": [1, 2, 3, 4]}",
@@ -410,11 +493,25 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8000/api/job-offers?sort_by=title",
+							"raw": "http://localhost:8000/api/job-offers?sort_by=title&per_page=1001",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -428,6 +525,10 @@
 								{
 									"key": "sort_by",
 									"value": "title"
+								},
+								{
+									"key": "per_page",
+									"value": "1001"
 								}
 							]
 						},
@@ -451,6 +552,11 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -463,7 +569,13 @@
 							]
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:8000/api/job-offers/14",
 							"protocol": "http",
@@ -498,6 +610,11 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -510,7 +627,13 @@
 							]
 						},
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"title\": \"backend\",\n    \"description\": \"Accusamus sunt voluptatem error incidunt voluptas est. Aliquam cumque similique molestiae. Eveniet nostrum architecto eligendi. Voluptas quae est fuga et.\\n\\nNam iusto consequatur perspiciatis. Et et accusamus quaerat nobis. Provident quis delectus tempora autem. Dolore odit dignissimos qui aut magnam. Ullam iure quia mollitia ea debitis recusandae.\\n\\nLaborum quis ab aut voluptatem. Voluptatem veritatis tempora eum deleniti deleniti sed.\",\n    \"active\": true,\n    \"clt\": false,\n    \"pj\": true,\n    \"freelancer\": false,\n    \"created_at\": \"2025-05-21T21:10:17.000000Z\",\n    \"updated_at\": \"2025-05-22T00:08:31.000000Z\",\n    \"deleted_at\": null\n}",
@@ -554,9 +677,20 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "PUT",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -601,9 +735,20 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -758,21 +903,32 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|y3R3KsPt5toSxOCccpisuHZdgmLroYsVacA3FO8V53bf4a9e",
+									"value": "189|VHGDFTfh9YhNgj6XNsMQJzTrYrgcpC9L3mFsJEZHb040ca2f",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8000/api/applications/user/48",
+							"raw": "http://localhost:8000/api/applications/user/53",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -782,7 +938,7 @@
 								"api",
 								"applications",
 								"user",
-								"48"
+								"53"
 							]
 						},
 						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -805,21 +961,32 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "1|y3R3KsPt5toSxOCccpisuHZdgmLroYsVacA3FO8V53bf4a9e",
+									"value": "189|VHGDFTfh9YhNgj6XNsMQJzTrYrgcpC9L3mFsJEZHb040ca2f",
 									"type": "string"
 								}
 							]
 						},
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "http://localhost:8000/api/applications/job-offers/41",
+							"raw": "http://localhost:8000/api/applications/job-offers/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -829,7 +996,7 @@
 								"api",
 								"applications",
 								"job-offers",
-								"41"
+								"6"
 							]
 						},
 						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
@@ -853,9 +1020,30 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "189|VHGDFTfh9YhNgj6XNsMQJzTrYrgcpC9L3mFsJEZHb040ca2f",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -866,7 +1054,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8000/api/applications/user/48/job-offers/41",
+							"raw": "http://localhost:8000/api/applications/user/24/job-offers/17",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -876,9 +1064,9 @@
 								"api",
 								"applications",
 								"user",
-								"48",
+								"24",
 								"job-offers",
-								"41"
+								"17"
 							]
 						},
 						"description": "This is a DELETE request, and it is used to delete data that was previously created via a POST request. You typically identify the entity being updated by including an identifier in the URL (eg. `id=1`).\n\nA successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code."
@@ -906,9 +1094,20 @@
 							}
 						}
 					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"url": {
 							"raw": "http://localhost:8000/api/temperature-analysis",
 							"protocol": "http",

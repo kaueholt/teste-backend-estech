@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\{JobOffer,User,UserJobOfferApplication};
 use App\Services\JobApplicationService;
-use App\Http\Requests\StoreJobOfferApplicationRequest;
+use App\Http\Requests\{IndexJobOfferRequest,StoreJobOfferApplicationRequest};
 use Illuminate\Http\JsonResponse;
 
 class JobOfferApplicationController extends Controller
@@ -16,10 +16,10 @@ class JobOfferApplicationController extends Controller
         $this->jobApplicationService = $jobApplicationService;
     }
 
-    public function index(): JsonResponse
+    public function index(IndexJobOfferRequest $request): JsonResponse
     {
         $applications = $this->jobApplicationService->getApplications(
-            request()->all(),
+            $request->validated(),
             request('sort_by', 'created_at'),
             request('sort_direction', 'desc')
         );
